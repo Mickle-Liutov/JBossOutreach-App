@@ -2,10 +2,9 @@
 # JBossOutreach-app
 Code documentation can be found in documentation folder.
 
-Library used in project:
-https://github.com/square/okhttp
-https://github.com/square/picasso
-Video with app (task 1):
-https://youtu.be/w_UGbWyPSG0
-Video with app (task 2):
-https://www.youtube.com/watch?v=z1HC8YNeVWw
+### Libraries used in project:
+ - https://github.com/square/okhttp
+ - https://github.com/square/picasso
+### Videos
+ - [Task 1](https://youtu.be/w_UGbWyPSG0)
+ - [Task 2](https://www.youtube.com/watch?v=z1HC8YNeVWw)

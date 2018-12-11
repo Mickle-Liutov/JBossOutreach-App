@@ -3,7 +3,7 @@ package com.community.jboss.outreach;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.community.jboss.outreach.activities.ContributActivity;
+import com.community.jboss.outreach.activities.ReceiveContribsBaseActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -65,6 +65,6 @@ public class ApiContribHandler extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        ((ContributActivity) context).receiveData(dataset);
+        ((ReceiveContribsBaseActivity) context).receiveData(dataset);
     }
 }

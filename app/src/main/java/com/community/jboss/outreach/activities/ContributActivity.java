@@ -2,7 +2,6 @@ package com.community.jboss.outreach.activities;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -15,7 +14,7 @@ import com.community.jboss.outreach.ContributorsRecyclerAdapter;
 import com.community.jboss.outreach.R;
 import com.community.jboss.outreach.utils.KeyStore;
 
-public class ContributActivity extends AppCompatActivity {
+public class ContributActivity extends ReceiveContribsBaseActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -59,6 +58,7 @@ public class ContributActivity extends AppCompatActivity {
         new ApiContribHandler(this,name).execute();
     }
 
+    @Override
     public void receiveData(String[][] data) {
         swipeRefreshLayout.setRefreshing(false);
         progressBar.setVisibility(View.GONE);

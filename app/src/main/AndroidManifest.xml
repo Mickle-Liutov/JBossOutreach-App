@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ContributActivity"/>
+        <activity android:name=".activities.ContribPodiumActivity" />
     </application>
 
 </manifest>

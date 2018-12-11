@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Top contributors"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/container_2"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container"
+        android:layout_marginStart="10dp">
+
+
+        <RelativeLayout
+            android:id="@+id/chart_1"
+            android:layout_width="80dp"
+            android:layout_height="125dp"
+            android:background="@drawable/half_rounded_square"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/number_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="25"
+                android:textColor="@android:color/white"
+                android:textSize="36sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Name name"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/chart_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/picture_1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toTopOf="@id/name_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/container_1"
+        app:layout_constraintEnd_toStartOf="@id/container_3"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container"
+        android:layout_marginStart="10dp">
+
+
+        <RelativeLayout
+            android:id="@+id/chart_2"
+            android:layout_width="80dp"
+            android:layout_height="200dp"
+            android:background="@drawable/half_rounded_square"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/number_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="25"
+                android:textColor="@android:color/white"
+                android:textSize="36sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/name_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Name name"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/chart_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/picture_2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toTopOf="@id/name_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/container_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+
+        <RelativeLayout
+            android:id="@+id/chart_3"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            android:background="@drawable/half_rounded_square"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/number_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="25"
+                android:textColor="@android:color/white"
+                android:textSize="36sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/name_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Name name"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/chart_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/picture_3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="5dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toTopOf="@id/name_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/see_more_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:background="@drawable/full_rounded_square"
+            android:text="See more"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

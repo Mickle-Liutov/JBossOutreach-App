@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.community.jboss.outreach.activities.ContributActivity;
+import com.community.jboss.outreach.activities.ContribPodiumActivity;
 import com.community.jboss.outreach.utils.KeyStore;
 
 public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositListRecyclerAdapter.RepositItem> {
@@ -17,7 +17,7 @@ public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositList
     private String[][] mDataset;
     private Context context;
 
-    public RepositListRecyclerAdapter(String[][] myDataset,Context context) {
+    public RepositListRecyclerAdapter(String[][] myDataset, Context context) {
         mDataset = myDataset;
         this.context = context;
     }
@@ -25,7 +25,7 @@ public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositList
     // Create new views (invoked by the layout manager)
     @Override
     public RepositListRecyclerAdapter.RepositItem onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+                                                                     int viewType) {
         // create a new view
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.reposit_recycler_item, parent, false);
@@ -42,15 +42,15 @@ public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositList
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent contribIntent = new Intent(context,ContributActivity.class);
-                contribIntent.putExtra(KeyStore.NAME_KEY,mDataset[id][0]);
+                Intent contribIntent = new Intent(context, ContribPodiumActivity.class);
+                contribIntent.putExtra(KeyStore.NAME_KEY, mDataset[id][0]);
                 context.startActivity(contribIntent);
             }
         });
         holder.name.setText(mDataset[position][0]);
         holder.description.setText(mDataset[position][1]);
         holder.language.setText(mDataset[position][2]);
-        if(position == getItemCount() - 1)holder.line.setVisibility(View.INVISIBLE);
+        if (position == getItemCount() - 1) holder.line.setVisibility(View.INVISIBLE);
         else holder.line.setVisibility(View.VISIBLE);
 
     }
@@ -58,7 +58,7 @@ public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositList
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        if(mDataset == null)return 0;
+        if (mDataset == null) return 0;
         return mDataset.length;
     }
 
@@ -69,6 +69,7 @@ public class RepositListRecyclerAdapter extends RecyclerView.Adapter<RepositList
         public TextView description;
         public TextView language;
         public View line;
+
         public RepositItem(View v) {
             super(v);
             container = v.findViewById(R.id.container);

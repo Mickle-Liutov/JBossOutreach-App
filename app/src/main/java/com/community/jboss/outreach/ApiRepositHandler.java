@@ -48,11 +48,11 @@ public class ApiRepositHandler extends AsyncTask {
             for (int i = 0; i < Jarray.length(); i++) {
                 JSONObject object = Jarray.getJSONObject(i);
                 dataset[i][0] = object.getString("name");
-                if(dataset[i][0].equals("null"))dataset[i][0] = "None";
+                if(dataset[i][0].equals("null"))dataset[i][0] = "";
                 dataset[i][1] = object.getString("description");
-                if(dataset[i][1].equals("null"))dataset[i][1] = "None";
+                if(dataset[i][1].equals("null"))dataset[i][1] = "";
                 dataset[i][2] = object.getString("language");
-                if(dataset[i][2].equals("null"))dataset[i][2] = "None";
+                if(dataset[i][2].equals("null"))dataset[i][2] = "";
             }
         } catch (Exception e) {
             e.printStackTrace();

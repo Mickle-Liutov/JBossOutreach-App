@@ -1,6 +1,9 @@
 package com.community.jboss.outreach;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +15,9 @@ import com.squareup.picasso.Picasso;
 
 public class ContributorsRecyclerAdapter extends RecyclerView.Adapter<ContributorsRecyclerAdapter.ContribItem> {
     private String[][] mDataset;
-    private  Context context;
+    private Context context;
 
-    public ContributorsRecyclerAdapter(String[][] myDataset,Context context) {
+    public ContributorsRecyclerAdapter(String[][] myDataset, Context context) {
         mDataset = myDataset;
         this.context = context;
     }
@@ -22,7 +25,7 @@ public class ContributorsRecyclerAdapter extends RecyclerView.Adapter<Contributo
     // Create new views (invoked by the layout manager)
     @Override
     public ContributorsRecyclerAdapter.ContribItem onCreateViewHolder(ViewGroup parent,
-                                                                     int viewType) {
+                                                                      int viewType) {
         // create a new view
         View v = (View) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.contributors_recycler_item, parent, false);
@@ -37,15 +40,21 @@ public class ContributorsRecyclerAdapter extends RecyclerView.Adapter<Contributo
         // - replace the contents of the view with that element
         holder.name.setText(mDataset[position][1]);
         holder.numberOFContribs.setText(mDataset[position][2]);
-        if(Integer.valueOf(mDataset[position][2]) == 1){
+        if (Integer.valueOf(mDataset[position][2]) == 1) {
             holder.contribs_text.setText(context.getString(R.string.contribution_singular));
-        }
-        else{
+        } else {
             holder.contribs_text.setText(context.getString(R.string.contribution_plural));
         }
-        if(position == getItemCount() - 1)holder.line.setVisibility(View.INVISIBLE);
+        if (position == getItemCount() - 1) holder.line.setVisibility(View.INVISIBLE);
         else holder.line.setVisibility(View.VISIBLE);
 
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mDataset[position][3]));
+                context.startActivity(browserIntent);
+            }
+        });
         Picasso.get()
                 .load(mDataset[position][0])
                 .fit()
@@ -57,17 +66,19 @@ public class ContributorsRecyclerAdapter extends RecyclerView.Adapter<Contributo
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        if(mDataset == null)return 0;
+        if (mDataset == null) return 0;
         return mDataset.length;
     }
 
     public static class ContribItem extends RecyclerView.ViewHolder {
 
+        public ConstraintLayout container;
         public ImageView image;
         public TextView name;
         public TextView numberOFContribs;
         public TextView contribs_text;
         public View line;
+
         public ContribItem(View v) {
             super(v);
             image = v.findViewById(R.id.image);
@@ -75,6 +86,7 @@ public class ContributorsRecyclerAdapter extends RecyclerView.Adapter<Contributo
             numberOFContribs = v.findViewById(R.id.number_contributions);
             contribs_text = v.findViewById(R.id.contributions_text);
             line = v.findViewById(R.id.line);
+            container = v.findViewById(R.id.container);
         }
     }
 }

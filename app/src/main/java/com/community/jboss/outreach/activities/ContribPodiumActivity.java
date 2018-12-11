@@ -1,6 +1,7 @@
 package com.community.jboss.outreach.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,7 +42,6 @@ public class ContribPodiumActivity extends ReceiveContribsBaseActivity {
         setContentView(R.layout.activity_contributors_podium);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initViews();
-        repository_name = getIntent().getStringExtra(KeyStore.NAME_KEY);
         see_more_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class ContribPodiumActivity extends ReceiveContribsBaseActivity {
                 startActivity(see_more_intent);
             }
         });
-
+        repository_name = getIntent().getStringExtra(KeyStore.NAME_KEY);
         new ApiContribHandler(this, repository_name).execute();
     }
 
@@ -62,6 +62,53 @@ public class ContribPodiumActivity extends ReceiveContribsBaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setLinksListeners(final String[][] data) {
+
+
+        picture_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[1][3]));
+                startActivity(browserIntent);
+            }
+        });
+        name_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[1][3]));
+                startActivity(browserIntent);
+            }
+        });
+        picture_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[0][3]));
+                startActivity(browserIntent);
+            }
+        });
+        name_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[0][3]));
+                startActivity(browserIntent);
+            }
+        });
+        picture_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[2][3]));
+                startActivity(browserIntent);
+            }
+        });
+        name_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data[2][3]));
+                startActivity(browserIntent);
+            }
+        });
     }
 
     private void initViews() {
@@ -111,5 +158,7 @@ public class ContribPodiumActivity extends ReceiveContribsBaseActivity {
         chart_1.setVisibility(View.VISIBLE);
         chart_2.setVisibility(View.VISIBLE);
         chart_3.setVisibility(View.VISIBLE);
+
+        setLinksListeners(data);
     }
 }

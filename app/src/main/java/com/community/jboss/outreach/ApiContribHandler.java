@@ -47,7 +47,7 @@ public class ApiContribHandler extends AsyncTask {
                 e.printStackTrace();
             }
             JSONArray Jarray = new JSONArray(jsonData);
-            dataset = new String[Jarray.length()][3];
+            dataset = new String[Jarray.length()][4];
             for (int i = 0; i < Jarray.length(); i++) {
                 JSONObject object = Jarray.getJSONObject(i);
                 dataset[i][0] = object.getString("avatar_url");
@@ -55,6 +55,7 @@ public class ApiContribHandler extends AsyncTask {
                 if(dataset[i][1].equals("null"))dataset[i][1] = "Not given";
                 dataset[i][2] = object.getString("contributions");
                 if(dataset[i][2].equals("null"))dataset[i][2] = "Not given";
+                dataset[i][3] = object.getString("html_url");
             }
         } catch (Exception e) {
             e.printStackTrace();

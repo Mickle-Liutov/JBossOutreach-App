@@ -8,3 +8,4 @@ Code documentation can be found in documentation folder.
 ### Videos
  - [Task 1](https://youtu.be/w_UGbWyPSG0)
  - [Task 2](https://www.youtube.com/watch?v=z1HC8YNeVWw)
+ - [Task 3](https://youtu.be/SmyqAc-7A1Q)
